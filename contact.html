@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="icon" type="image/x-icon" href="./public/images/favicon.ico">
+  
+</head>
+
+<body>
+  <div class="app">
+
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand pb-3" href="/">
+            <img src="./public/images/logo.png" alt="logo Freece">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 h5">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/home.html">Trang chủ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/intro.html">Giới thiệu</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/product.html">Sản phẩm</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/news.html">Tin tức</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/signin.html">Đăng nhập</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/signup.html">Đăng ký</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/contact.html">Liên hệ</a>
+              </li>
+              </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <h1>LIÊN HỆ</h1>
+      <img src="./public/images/lienhe/check-in.png" alt="">
+      <h1>ĐỊA CHỈ: 0123, Tòa Nhà ABC, Cần Thơ</h1>
+      <p>Nếu các bạn có góp ý, vui lòng liên hệ bằng thư điện tử hoặc sử dụng biểu mẫu bên dưới. Xin cảm ơn.</p>
+      <form method="POST" action="" enctype="multipart/form-data" class="w-auto p-4" style="border: 1px solid #000;">
+        <fieldset>
+          <legend>ĐĂNG KÝ</legend>
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td><label for="fname">Họ tên</label></td>
+                <td>
+                  <input class="w-50" type="fname" id="fname" name="fname" placeholder="Vui lòng nhập họ tên">
+                </td>
+              </tr>
+              <tr>
+                <td><label for="email">Email</label></td>
+                <td>
+                  <input class="w-50" type="email" id="email" name="email" placeholder="Vui lòng nhập email">
+                </td>
+              </tr>
+              <tr>
+                <td><label for="email">Email</label></td>
+                <td>
+                  <select class="form-select w-50" aria-label="Default select example">
+                    <option selected>Về sản phẩm dịch vụ</option>
+                    <option value="1">Về ưu đãi thành viên</option>
+                    <option value="2">Về tin tuyển dụng</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  Nội dung
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <textarea name="" id="" class="form-control" rows="7" placeholder="Nội dung cần liên hệ"></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="text-center">
+                  <input type="submit" value="Gửi"></input>
+                </td>
+              </tr>              
+            </tbody>
+          </table>
+          
+        </fieldset>
+      </form>
+    </main>
+
+    <footer class="footer">
+      <footer class="d-flex flex-wrap align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-muted text-center">&copy; 2023 Bảm quyền thuộc về FreeceVN.</p>
+
+        <ul class="nav col-md-4 justify-content-center flex-grow-1">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Facebook</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Twitter</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pinterest</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Trở về đầu trang</a></li>
+        </ul>
+      </footer>
+    </footer>
+
+  </div>
+</body>
+
+</html>
