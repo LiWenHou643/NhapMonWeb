@@ -1,0 +1,10 @@
+fieldset label{
+    display: inline-block;
+    width: 100px;
+}
+fieldset label[for="checkbox"]{
+    display: inline;
+}
+fieldset input:not([type="submit"],[type="reset"],[type="checkbox"]) {
+    width: 400px;
+}

@@ -1,0 +1,35 @@
+main.container .bg-home {
+    width: 100%;
+}
+
+main.container .bg-home img {
+    width: 100%;
+    object-fit: cover;
+}
+h1,h2 {
+    color: rgb(255, 29, 161);
+}
+.new-product {
+    position: relative;
+    height: 400px;
+    padding: 0 80px;
+}
+.new-product h1 {
+    text-align: center;
+}
+.new-product img {
+    position: absolute;
+    top: 80px;
+}
+.new-product p {
+    margin-left: 360px;
+}
+
+.order picture {
+    display: flex;
+    align-items: center;
+}
+.order img{
+    width: 50px;
+    object-fit: cover;
+}
