@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product</title>
+    <link rel="icon" type="image/x-icon" href="./public/images/favicon.ico" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/donhang.css" />
+</head>
+
+<body>
+    <header class="header">
+        <a href="">
+            <img src="./images/logo.png" alt="" />
+        </a>
+        <img class="header-bg-1" src="./images/header-img1.png" alt="" />
+        <img class="header-bg-2" src="./images/header-img2.png" alt="" />
+        <img class="header-bg-3" src="./images/header-img3.png" alt="" />
+        <div class="header-bar">
+            <ul class="navbar">
+                <li class="nav-item">
+                    <a class="" href="/home.html">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="" href="/intro.html">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="" href="/product.html">Sản phẩm</a>
+                </li>
+                <li class="nav-item">
+                    <a class="" href="/news.html">Tin tức</a>
+                </li>
+                <li class="nav-item">
+                    <a class="" href="/signin.html">Đăng nhập</a>
+                </li>
+                <li class="nav-item">
+                    <a class="" href="/signup.html">Đăng ký</a>
+                </li>
+                <li class="nav-item">
+                    <a class="" href="/contact.html">Liên hệ</a>
+                </li>
+            </ul>
+            <form method="GET" action="" class="search">
+                <input type="search" placeholder="Tìm kiếm" />
+                <button type="submit">Tìm</button>
+            </form>
+            <button class="cart">
+                <a href="donhang.html">Cart</a>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <table class="bill">
+            <tr class="bill-head">
+                <th>Hình</th>
+                <th>Tên</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Thành tiền</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td colspan="6">Tổng thành tiền (A) = 0 đ</td>
+            </tr>
+            <tr>
+                <td colspan="6">Chiết khấu (B) = 0.1 x A = 0 đ</td>
+            </tr>
+            <tr>
+                <td colspan="6">Thuế (C) = 10% x (A - B) = 0 đ</td>
+            </tr>
+            <tr>
+                <td colspan="6">Tổng đơn hàng = A - B + C = 0 đ</td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <button>Xác nhận đơn hàng</button>
+                </td>
+            </tr>
+        </table>
+    </main>
+
+    <footer class="footer">
+        <p class="">&copy; 2023 Bảm quyền thuộc về FreeceVN.</p>
+        <ul class="">
+            <li class="nav-item"><a href="#">Facebook</a></li>
+            <li class="nav-item"><a href="#">Twitter</a></li>
+            <li class="nav-item"><a href="#">Pinterest</a></li>
+            <li class="nav-item"><a href="#">Trở về đầu trang</a></li>
+        </ul>
+    </footer>
+
+    <script src="./js/search.js"></script>
+    <script>
+        const products = {
+            a01: {
+                name: "Sữa chua vị kiwi",
+                price: "21000",
+                image: "./images/sanpham/kiwi.jpg",
+            },
+            a02: {
+                name: "Sữa chua vị xoài",
+                price: "22000",
+                image: "./images/sanpham/mango.jpg",
+            },
+            a03: {
+                name: "Sữa chua vị dưa lưới",
+                price: "23000",
+                image: "./images/sanpham/cantaloupe.jpg",
+            },
+            a04: {
+                name: "Sữa chua vị mâm xôi",
+                price: "24000",
+                image: "./images/sanpham/blackberry.jpg",
+            },
+            a05: {
+                name: "Sữa chua vị việt quất",
+                price: "25000",
+                image: "./images/sanpham/blueberry.jpg",
+            },
+        };
+        var totalPreTax = 0
+        const bill_head = document.querySelector('.bill-head')
+        
+        for (const [key, value] of Object.entries(localStorage)) {
+            item = key
+            image = products[key].image
+            name = products[key].name
+            price = products[key].price
+            number = value
+
+            var newNode = document.createElement("tr");
+            newNode.className = `bill-item ids"=${item}"`;
+            newNode.innerHTML = `
+                <td>
+                    <img src="${image}">    
+                </td>
+                <td>${name}</td>
+                <td>${number}</td>
+                <td>${price}</td>
+                <td>${value*price} vnd</td>
+                <td>
+                    <button onclick="removeCart(${item})">Xóa</button>    
+                </td>
+            `;
+            bill_head.parentNode.insertBefore(newNode, bill_head.nextSibling);
+        }
+
+        function removeCart(code) {
+            if (typeof window.localStorage[code] !== "underfined") {
+                window.localStorage.removeItem(code)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

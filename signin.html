@@ -50,20 +50,19 @@
   </header>
 
   <main class="container">
-    <form method="POST" action="" enctype="application/x-www-form-urlencoded" class="w-auto p-4"
-      style="border: 1px solid #000;">
+    <form method="POST" enctype="application/x-www-form-urlencoded">
       <fieldset>
         <legend>ĐĂNG KÝ</legend>
         <img src="./images/dangnhap/userlogin.png" alt="userlogin" width="300px"><br>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Your email..."><br>
+        <input type="email" id="email" name="email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" placeholder="Your email..." required><br>
 
-        <label for="password">Last Name</label>
-        <input type="password" id="password" name="password" placeholder="Your password.."><br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" minlength="8" placeholder="Your password.." required><br>
 
         <label for="checkbox">Đồng ý điều khoản ....</label>
-        <input type="checkbox" id="checkbox" name="checkbox" ><br>
+        <input type="checkbox" id="checkbox" name="checkbox" required><br>
 
         <input type="submit" value="Submit">
         <input type="reset" value="Cancel">
@@ -81,6 +80,26 @@
     </ul>
   </footer>
   <script src="./js/search.js"></script>
+  <script>
+    // localStorage.clear();
+    const form = document.querySelector('main form');
+    const inputEmail= document.getElementById("email");
+    const inputPW= document.getElementById("password");
+    var n=1;
+    form.onsubmit = (e) => {
+      e.preventDefault();
+      var userlogin = {
+        email: inputEmail.value,
+        password: inputPW.value
+      }
+      localStorage.setItem(`userlogin${n}`, JSON.stringify(userlogin));
+      var retrievedObject = localStorage.getItem(`userlogin${n}`);
+      console.log('retrievedObject: ', JSON.parse(retrievedObject));
+      n++;
+      alert("Submitted");
+      console.log(n);
+    }
+  </script>
 
 </body>
 

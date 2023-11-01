@@ -1,0 +1,30 @@
+table {
+    border-collapse: collapse;
+    width: 1000px;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+}
+tr:not(:last-child) td {
+    text-align: end;
+}
+td button {
+    background-color: bisque;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+}
+td button:hover {
+    background-color: aquamarine;
+    cursor: pointer;
+}
+td img {
+    width: 100px;
+}
+.bill-item td{
+    text-align: center !important;
+}

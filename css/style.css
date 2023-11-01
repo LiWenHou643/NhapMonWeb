@@ -113,3 +113,13 @@ footer ul li a{
   background-color: #0066ff;
   border-radius: 50px;
 }
+.cart {
+  background-color: rgb(255, 77, 77);
+  border: none;
+  border-radius: 2px;
+  padding: 5px 10px;
+}
+.cart a{
+  text-decoration: none;
+  color: #000;
+}
