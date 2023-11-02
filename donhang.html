@@ -54,31 +54,38 @@
 
     <main class="container">
         <table class="bill">
-            <tr class="bill-head">
-                <th>Hình</th>
-                <th>Tên</th>
-                <th>Số lượng</th>
-                <th>Giá</th>
-                <th>Thành tiền</th>
-                <th></th>
-            </tr>
-            <tr>
-                <td colspan="6">Tổng thành tiền (A) = 0 đ</td>
-            </tr>
-            <tr>
-                <td colspan="6">Chiết khấu (B) = 0.1 x A = 0 đ</td>
-            </tr>
-            <tr>
-                <td colspan="6">Thuế (C) = 10% x (A - B) = 0 đ</td>
-            </tr>
-            <tr>
-                <td colspan="6">Tổng đơn hàng = A - B + C = 0 đ</td>
-            </tr>
-            <tr>
-                <td colspan="6">
-                    <button>Xác nhận đơn hàng</button>
-                </td>
-            </tr>
+            <thead>
+                <tr class="bill-head">
+                    <th>Hình</th>
+                    <th>Tên</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Thành tiền</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">Tổng thành tiền (A) = 0 đ</td>
+                </tr>
+                <tr>
+                    <td colspan="6">Chiết khấu (B) = 0.1 x A = 0 đ</td>
+                </tr>
+                <tr>
+                    <td colspan="6">Thuế (C) = 10% x (A - B) = 0 đ</td>
+                </tr>
+                <tr>
+                    <td colspan="6">Tổng đơn hàng = A - B + C = 0 đ</td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <button>Xác nhận đơn hàng</button>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </main>
 
@@ -122,37 +129,80 @@
             },
         };
         var totalPreTax = 0
-        const bill_head = document.querySelector('.bill-head')
-        
-        for (const [key, value] of Object.entries(localStorage)) {
-            item = key
-            image = products[key].image
-            name = products[key].name
-            price = products[key].price
-            number = value
+        const tbody = document.getElementsByTagName('tbody')
+        function showCart() {
+            for (const [key, value] of Object.entries(localStorage)) {
+                item = key
+                image = products[key].image
+                name = products[key].name
+                price = products[key].price
+                number = value
 
-            var newNode = document.createElement("tr");
-            newNode.className = `bill-item ids"=${item}"`;
-            newNode.innerHTML = `
-                <td>
-                    <img src="${image}">    
-                </td>
-                <td>${name}</td>
-                <td>${number}</td>
-                <td>${price}</td>
-                <td>${value*price} vnd</td>
-                <td>
-                    <button onclick="removeCart(${item})">Xóa</button>    
-                </td>
-            `;
-            bill_head.parentNode.insertBefore(newNode, bill_head.nextSibling);
-        }
+                totalPreTax += number * price
 
-        function removeCart(code) {
-            if (typeof window.localStorage[code] !== "underfined") {
-                window.localStorage.removeItem(code)
+                var ids = document.getElementsByClassName(`ids="${item}"`);
+                if (ids === null || ids.length === 0) {
+                    var newNode = document.createElement("tr");
+                    newNode.className = `bill-item ids="${item}"`;
+                    newNode.innerHTML = `
+                    <td>
+                        <img src="${image}">    
+                    </td>
+                    <td>${name}</td>
+                    <td>${number}</td>
+                    <td>${price}</td>
+                    <td>${value * price} vnd</td>
+                    <td>
+                        <button onclick="removeCart('${item}')">Xóa</button>    
+                    </td>
+                `;
+                    tbody[0].appendChild(newNode)
+                }
             }
         }
+        showCart();
+
+        function removeCart(code) {
+            var number = localStorage[code]
+            console.log('sl '+number)
+            var price = products[code].price
+            console.log('gia '+price)
+            console.log(totalPreTax)
+            totalPreTax = totalPreTax - price * number;
+            console.log('remvoecart: '+totalPreTax)
+
+            localStorage.removeItem(code)
+            var item = document.getElementsByClassName(`ids="${code}"`);
+            tbody[0].removeChild(item[0])
+
+            cost()
+            showCart();
+        }
+
+        function cost() {
+            var tfoot = document.getElementsByTagName("tfoot")
+            var preTaxText = tfoot[0].getElementsByTagName("td")[0]
+            var saleText = tfoot[0].getElementsByTagName("td")[1]
+            var taxText = tfoot[0].getElementsByTagName("td")[2]
+            var sumText = tfoot[0].getElementsByTagName("td")[3]
+
+            var preTax = totalPreTax
+            var sale = 0.1 * preTax
+            var tax = 0.1 * (preTax - sale)
+            var sum = preTax - sale + tax
+
+            preTaxText.innerHTML = ""
+            preTaxText.innerHTML = `Tổng thành tiền (A) = ${preTax} đ`
+            saleText.innerHTML = ""
+            saleText.innerHTML = `Chiết khấu (B) = 0.1 x A = ${sale} đ`
+            taxText.innerHTML = ""
+            taxText.innerHTML = `Thuế (C) = 10% x (A - B) = ${tax} đ`
+            sumText.innerHTML = ""
+            sumText.innerHTML = `Tổng đơn hàng = A - B + C = ${sum} đ`
+
+            console.log('abc: ' + totalPreTax)
+        }
+        cost()
 
     </script>
 </body>

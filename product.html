@@ -12,99 +12,99 @@
 
 <body>
 
-    <header class="header">
-      <a href="">
-        <img src="./images/logo.png" alt="">
-      </a>
-      <img class="header-bg-1" src="./images/header-img1.png" alt="">
-      <img class="header-bg-2" src="./images/header-img2.png" alt="">
-      <img class="header-bg-3" src="./images/header-img3.png" alt="">
-      <div class="header-bar">
-        <ul class="navbar">
-          <li class="nav-item">
-            <a class="" href="/home.html">Trang chủ</a>
-          </li>
-          <li class="nav-item">
-            <a class="" href="/intro.html">Giới thiệu</a>
-          </li>
-          <li class="nav-item">
-            <a class="" href="/product.html">Sản phẩm</a>
-          </li>
-          <li class="nav-item">
-            <a class="" href="/news.html">Tin tức</a>
-          </li>
-          <li class="nav-item">
-            <a class="" href="/signin.html">Đăng nhập</a>
-          </li>
-          <li class="nav-item">
-            <a class="" href="/signup.html">Đăng ký</a>
-          </li>
-          <li class="nav-item">
-            <a class="" href="/contact.html">Liên hệ</a>
-          </li>
-        </ul>
-        <form method="GET" action="" class="search">
-          <input type="search" placeholder="Tìm kiếm">
-          <button type="submit">Tìm</button>
-        </form>
-        <button class="cart">
-          <a href="donhang.html">Cart</a>
-        </button>
-      </div>
-    </header>
-
-    <main class="container">
-      <ul class="products">
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
-        <li class="item"></li>
+  <header class="header">
+    <a href="">
+      <img src="./images/logo.png" alt="">
+    </a>
+    <img class="header-bg-1" src="./images/header-img1.png" alt="">
+    <img class="header-bg-2" src="./images/header-img2.png" alt="">
+    <img class="header-bg-3" src="./images/header-img3.png" alt="">
+    <div class="header-bar">
+      <ul class="navbar">
+        <li class="nav-item">
+          <a class="" href="/home.html">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="" href="/intro.html">Giới thiệu</a>
+        </li>
+        <li class="nav-item">
+          <a class="" href="/product.html">Sản phẩm</a>
+        </li>
+        <li class="nav-item">
+          <a class="" href="/news.html">Tin tức</a>
+        </li>
+        <li class="nav-item">
+          <a class="" href="/signin.html">Đăng nhập</a>
+        </li>
+        <li class="nav-item">
+          <a class="" href="/signup.html">Đăng ký</a>
+        </li>
+        <li class="nav-item">
+          <a class="" href="/contact.html">Liên hệ</a>
+        </li>
       </ul>
-    </main>
+      <form method="GET" action="" class="search">
+        <input type="search" placeholder="Tìm kiếm">
+        <button type="submit">Tìm</button>
+      </form>
+      <button class="cart">
+        <a href="donhang.html">Cart</a>
+      </button>
+    </div>
+  </header>
 
-    <footer class="footer">
-      <p class="">&copy; 2023 Bảm quyền thuộc về FreeceVN.</p>
-      <ul class="">
-        <li class="nav-item"><a href="#">Facebook</a></li>
-        <li class="nav-item"><a href="#">Twitter</a></li>
-        <li class="nav-item"><a href="#">Pinterest</a></li>
-        <li class="nav-item"><a href="#">Trở về đầu trang</a></li>
-      </ul>
-    </footer>
+  <main class="container">
+    <ul class="products">
+      <li class="item"></li>
+      <li class="item"></li>
+      <li class="item"></li>
+      <li class="item"></li>
+      <li class="item"></li>
+    </ul>
+  </main>
+
+  <footer class="footer">
+    <p class="">&copy; 2023 Bảm quyền thuộc về FreeceVN.</p>
+    <ul class="">
+      <li class="nav-item"><a href="#">Facebook</a></li>
+      <li class="nav-item"><a href="#">Twitter</a></li>
+      <li class="nav-item"><a href="#">Pinterest</a></li>
+      <li class="nav-item"><a href="#">Trở về đầu trang</a></li>
+    </ul>
+  </footer>
 
   <script src="./js/search.js"></script>
   <script>
     const products = {
       a01: {
-        name:'Sữa chua vị kiwi',
+        name: 'Sữa chua vị kiwi',
         price: '21000',
         image: './images/sanpham/kiwi.jpg'
       },
       a02: {
-        name:'Sữa chua vị xoài',
+        name: 'Sữa chua vị xoài',
         price: '22000',
         image: './images/sanpham/mango.jpg'
       },
       a03: {
-        name:'Sữa chua vị dưa lưới',
+        name: 'Sữa chua vị dưa lưới',
         price: '23000',
         image: './images/sanpham/cantaloupe.jpg'
       },
       a04: {
-        name:'Sữa chua vị mâm xôi',
+        name: 'Sữa chua vị mâm xôi',
         price: '24000',
         image: './images/sanpham/blackberry.jpg'
       },
       a05: {
-        name:'Sữa chua vị việt quất',
+        name: 'Sữa chua vị việt quất',
         price: '25000',
         image: './images/sanpham/blueberry.jpg'
       }
     }
 
     const items = document.querySelectorAll('.products .item')
-    items.forEach(function(item,index){
+    items.forEach(function (item, index) {
       item.innerHTML = `
         <img src="${products[Object.keys(products)[index]].image}" alt="">
         <p>${products[Object.keys(products)[index]].name}</p>
@@ -116,18 +116,18 @@
       `
     })
 
-    function addCart(code){
+    function addCart(code) {
       const number = parseInt(document.querySelector(`input[ids="${code}"]`).value);
-      if(typeof localStorage[code] === "undefined"){
+      if (typeof localStorage[code] === "undefined") {
         if (number <= 0 || number > 100) alert("amount > 0 and < 100");
-        else window.localStorage.setItem(code,number)
+        else window.localStorage.setItem(code, number)
       } else {
-        current=parseInt(window.localStorage.getItem(code))
-        if (number+current > 100) {
-          window.localStorage.setItem(code,100)
+        current = parseInt(window.localStorage.getItem(code))
+        if (number + current > 100) {
+          window.localStorage.setItem(code, 100)
           alert("Reach max amount 100")
         } else {
-          window.localStorage.setItem(code,number+current)
+          window.localStorage.setItem(code, number + current)
         }
       }
     }
